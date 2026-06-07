@@ -31,5 +31,10 @@ pipeline {
                  sh './mvnw jacoco:report'
             }
         }
+        stage('Dependency Check') {
+            steps {
+                 sh './mvnw org.owasp:dependency-check-maven:check'
+            }
+        }
     }
 }
