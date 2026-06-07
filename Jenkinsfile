@@ -37,4 +37,16 @@ pipeline {
             }
         }
     }
+    post {
+      always {
+        publishHTML([
+            allowMissing: false,
+            alwaysLinkToLastBuild: true,
+            keepAll: true,
+            reportDir: 'target/site/jacoco',
+            reportFiles: 'index.html',
+            reportName: 'JaCoCo Report'
+        ])
+      }
+    }
 }
