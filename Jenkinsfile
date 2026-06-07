@@ -26,5 +26,10 @@ pipeline {
                 sh './mvnw package'
             }
         }
+        stage('Code Coverage') {
+            steps {
+                 sh './mvnw jacoco:report'
+            }
+        }
     }
 }
